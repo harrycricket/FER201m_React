@@ -1,16 +1,8 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { Players } from "../share/ListOfPlayers";
 import PlayersPresentation from "./PlayersPresentation";
-export class Main extends Component {
-  constructor() {
-    super();
-    this.state = {
-      players: Players,
-    };
-  }
-  render() {
-    return <PlayersPresentation players={this.state.players} />;
-  }
-}
 
-export default Main;
+export default function Main() {
+  const [players, setPlayers] = useState(Players);
+  return <PlayersPresentation players={players} />;
+}

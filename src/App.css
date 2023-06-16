@@ -42,29 +42,14 @@
   }
 }
 
-/* .heading {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  background-color: black;
-}
-
-.heading li {
-  float: left;
-}
-
-.heading li a {
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-} */
-
 .heading-title {
   list-style-type: none;
   float: left;
   margin-left: 50px;
+}
+
+.heading-title:hover {
+  cursor: pointer;
 }
 
 .heading-title a {
@@ -86,6 +71,10 @@
   background-color: aliceblue;
 }
 
+.card button {
+  cursor: pointer;
+}
+
 img {
   width: 100%;
   height: auto;
@@ -101,17 +90,6 @@ button {
   color: white;
   border: none;
   padding: 10px;
-}
-
-p {
-  background-color: black;
-}
-
-.footer {
-  background-color: olive;
-  margin-bottom: 0;
-  padding: 10px;
-  color: white;
 }
 
 .overlay {
@@ -172,7 +150,11 @@ p {
 }
 
 .header {
-  padding: 20px 0;
+  padding: 24px 0;
+}
+
+.header:hover {
+  background-color: blue;
 }
 
 .containerDetail {

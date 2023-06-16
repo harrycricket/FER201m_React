@@ -1,23 +1,49 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Navigation from "./components/Navigation";
-import Footer from "./components/Footer";
+import Navigation from "./container/navigation/Navigation";
+import Footer from "./container/footer/Footer";
+import Main from "./container/main/Main";
 import { Routes, Route } from "react-router-dom";
-import { Detail } from "./components/Detail";
-import { Contact } from "./components/Contact";
-import Player from "./components/Player";
+import Detail from "./container/player-detail/Detail";
+import { Box, ThemeProvider, createTheme } from "@mui/material";
+import React, { useMemo, useState } from "react";
+import getDesignTokens from "./container/theme/themeMui";
 
-export default function App() {
+function App() {
+  const [mode, setMode] = useState("light");
+  const colorMode = React.useMemo(
+    () => ({
+      toggleColorMode: () => {
+        setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+      },
+    }),
+    []
+  );
+  const theme = useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
   return (
-    <div className="App">
-      <Navigation />
-      <Routes>
-        <Route path="/" element={<Player />}></Route>
-        <Route path="/detail/:id" element={<Detail />}></Route>
-        {/* <Route path="/contact" element={<Contact />}></Route> */}
-      </Routes>
-      {/* <Main /> */}
-      <Footer />
-    </div>
+    <ThemeProvider theme={theme}>
+      <Box
+        colorMode={colorMode}
+        sx={{
+          backgroundColor: theme.palette.background.default,
+        }}
+      >
+        <Navigation colorMode={colorMode} />
+        <Box
+          sx={{
+            minHeight: "100vh",
+            backgroundColor: theme.palette.background.default,
+            position: "relative",
+          }}
+        >
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/detail/:id" element={<Detail />}></Route>
+          </Routes>
+          <Footer />
+        </Box>
+      </Box>
+    </ThemeProvider>
   );
 }
+
+export default App;

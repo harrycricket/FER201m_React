@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import { data } from "../../assets/store/ListOfPlayers";
+import React, { Component, useEffect, useState } from "react";
 import Players from "../players/Players";
-export class Main extends Component {
-  constructor() {
-    super();
-    this.state = {
-      players: data,
-    };
-  }
-  render() {
-    return <Players players={this.state.players} />;
-  }
+import { BASE_URL } from "../../constant";
+export default function Main(props) {
+  const [players, setPlayers] = useState([]);
+  useEffect(() => {
+    getPlayers();
+  }, []);
+  const getPlayers = async () => {
+    const response = await fetch(BASE_URL + "/a");
+    const players = await response.json();
+    setPlayers(players);
+  };
+  return <Players players={players} />;
 }
-export default Main;

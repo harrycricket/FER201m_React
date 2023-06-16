@@ -10,6 +10,7 @@ import getDesignTokens from "./container/theme/themeMui";
 import ContactUs from "./container/contact-us/ContactUs";
 import AboutUs from "./container/about-us/AboutUs";
 import News from "./container/news/News";
+import AddPlayer from "./container/add-player/AddPlayer";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -44,6 +45,7 @@ function App() {
             <Route path="/contact" element={<ContactUs />}></Route>
             <Route path="/about" element={<AboutUs />}></Route>
             <Route path="/news" element={<News />}></Route>
+            <Route path="/add" element={<AddPlayer />}></Route>
           </Routes>
           <Footer />
         </Box>

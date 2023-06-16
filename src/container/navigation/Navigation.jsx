@@ -8,11 +8,12 @@ import HomeIcon from "@mui/icons-material/Home";
 import { useNavigate } from "react-router-dom";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import ArticleOutlinedIcon from "@mui/icons-material/ArticleOutlined";
+import PersonAddAlt1Icon from "@mui/icons-material/PersonAddAlt1";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
 export default function Navigation({ colorMode }) {
   const navigate = useNavigate();
   const theme = useTheme();
-  const [value, setValue] = useState();
+  const [value, setValue] = useState(1);
   const handleChange = (e, value) => {
     setValue(value);
   };
@@ -94,6 +95,15 @@ export default function Navigation({ colorMode }) {
                 </Box>
               }
               value={4}
+            />
+            <Tab
+              onClick={() => navigate("/add")}
+              label={
+                <Box sx={{ display: "flex" }}>
+                  <PersonAddAlt1Icon /> <Typography>Add player</Typography>
+                </Box>
+              }
+              value={5}
             />
           </Tabs>
         </Grid2>

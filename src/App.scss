@@ -1,0 +1,18 @@
+@import "./scss/card";
+@import "./scss/mixins";
+@import "./scss/variables";
+#root {
+  width: 100%;
+}
+.container {
+  width: 70%;
+  margin: auto;
+  justify-content: center;
+}
+body {
+  font-family: $fonts; /* variable usage */
+  background-color: $primary-color;
+  padding: $spacing;
+  min-height: 100vh;
+  @include flex-center();
+}

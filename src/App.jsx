@@ -7,6 +7,9 @@ import Detail from "./container/player-detail/Detail";
 import { Box, ThemeProvider, createTheme } from "@mui/material";
 import React, { useMemo, useState } from "react";
 import getDesignTokens from "./container/theme/themeMui";
+import ContactUs from "./container/contact-us/ContactUs";
+import AboutUs from "./container/about-us/AboutUs";
+import News from "./container/news/News";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -38,6 +41,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/detail/:id" element={<Detail />}></Route>
+            <Route path="/contact" element={<ContactUs />}></Route>
+            <Route path="/about" element={<AboutUs />}></Route>
+            <Route path="/news" element={<News />}></Route>
           </Routes>
           <Footer />
         </Box>

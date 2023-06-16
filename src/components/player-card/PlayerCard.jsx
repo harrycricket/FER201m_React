@@ -7,7 +7,6 @@ const style = (theme) => {
   return {
     container: {
       backgroundColor: theme.palette.background.paper,
-      // boxShadow: '3px 4px 10px rgba(101, 101, 101, 0.387)'
     },
     image: {},
     content: {
